@@ -174,7 +174,7 @@ function Employees() {
       </thead>
       <tbody>
         {employeeList.map((elem) => (
-          <tr>
+          <tr key={elem.name}>
             <td>{elem.name}</td>
             <td>{elem.surname}</td>
             <td>
@@ -194,6 +194,17 @@ function Employees() {
             <td>{elem.days * elem.salaryPerDay}</td>
           </tr>
         ))}
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <h1>
+              {employeeList.reduce((a, c) => a + c.days * c.salaryPerDay, 0)}
+            </h1>
+          </td>
+        </tr>
       </tbody>
     </table>
   );
